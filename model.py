@@ -48,7 +48,6 @@ model.add(Flatten())
 
 #model.add(Dense(1164))
 #model.add(Activation('relu'))
-model.add(Dropout(0.5))
 model.add(Dense(150))
 model.add(Activation('relu'))
 
@@ -61,7 +60,7 @@ model.compile('adam', 'mean_squared_error', ['accuracy'])
 
 print(model.summary())
 
-history = model.fit(features, labels, nb_epoch=10, validation_split=0.2)
+history = model.fit(features, labels, nb_epoch=5, validation_split=0.2)
 
 model_as_json = model.to_json()
 try:
