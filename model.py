@@ -33,7 +33,7 @@ model.add(Convolution2D(32, 3, 3, border_mode='valid'))
 model.add(Activation('relu'))
 model.add(MaxPooling2D((2,2)))
 
-model.add(Flatten)
+model.add(Flatten())
 
 model.add(Dense(20))
 model.add(Activation('relu'))
