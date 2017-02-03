@@ -56,7 +56,7 @@ def save_file():
                 x, y = read_image(lines[i])
                 x = pipeline(x)
                 X[i-1] = x
-                Y[i-1] = float(y)
+                Y[i-1] = round(float(y),3)
             except Exception as e:
                 print(e)
         print("created normal images")
@@ -65,7 +65,7 @@ def save_file():
                 x, y, read_image(lines[i])
                 x, y = flip_image(x, y)
                 X[total_size + i -1] = x
-                Y[total_size + i -1] = y
+                Y[total_size + i -1] = round(float(y), 3)
             except Exception as e:
                 print(e)
         print("created flipped images")
