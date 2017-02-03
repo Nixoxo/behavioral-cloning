@@ -23,7 +23,10 @@ height = 32
 width = 64
 model = Sequential()
 # Kernel Size 3 x 3 (16 Filters)
-model.add(Convolution2D(16, 3, 3, input_shape=(height, width, 3), border_mode='valid'))
+model.add(Convolution2D(1, 1, 1, input_shape=(height, width, 3), border_mode='same'))
+model.add(Activation('relu'))
+
+model.add(Convolution2D(16, 3, 3, input_shape=(height, width, 1), border_mode='valid'))
 model.add(MaxPooling2D((2, 2)))
 model.add(Activation('relu'))
 
@@ -35,7 +38,6 @@ model.add(Activation('relu'))
 # Kernel Size 3 x 3 (48 Filters)
 model.add(Convolution2D(48, 3, 3, border_mode='valid'))
 model.add(MaxPooling2D((2, 2)))
-
 # Kernel Size 3 x 3 (64 Filters)
 #model.add(Convolution2D(64, 3, 3, border_mode='valid'))
 #model.add(MaxPooling2D((2, 2)))
@@ -46,8 +48,8 @@ model.add(Flatten())
 
 #model.add(Dense(1164))
 #model.add(Activation('relu'))
-
-model.add(Dense(100))
+model.add(Dropout(0.5))
+model.add(Dense(150))
 model.add(Activation('relu'))
 
 model.add(Dense(50))
@@ -59,7 +61,7 @@ model.compile('adam', 'mean_squared_error', ['accuracy'])
 
 print(model.summary())
 
-history = model.fit(features, labels, nb_epoch=5, validation_split=0.2)
+history = model.fit(features, labels, nb_epoch=10, validation_split=0.2)
 
 model_as_json = model.to_json()
 try:
