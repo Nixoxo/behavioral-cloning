@@ -26,29 +26,14 @@ model = Sequential()
 
 model.add(Convolution2D(16, 3, 3, input_shape=(height, width, 3), border_mode='valid'))
 model.add(Activation('relu'))
+model.add(MaxPooling2D((2,2)))
 
 # Kernel Size 3 x 3 (32 Filters)
 model.add(Convolution2D(32, 3, 3, border_mode='valid'))
 model.add(Activation('relu'))
+model.add(MaxPooling2D((2,2)))
 
-# Kernel Size 3 x 3 (48 Filters)
-model.add(Convolution2D(48, 3, 3, border_mode='valid'))
-model.add(Activation('relu'))
-model.add(MaxPooling2D((2, 2)))
-
-model.add(Convolution2D(64, 3, 3, border_mode='valid'))
-model.add(Activation('relu'))
-model.add(MaxPooling2D((2, 2)))
-# Kernel Size 3 x 3 (64 Filters)
-model.add(Flatten())
-
-model.add(Dense(500))
-model.add(Activation('relu'))
-
-model.add(Dropout(0.5))
-
-model.add(Dense(80))
-model.add(Activation('relu'))
+model.add(Flatten)
 
 model.add(Dense(20))
 model.add(Activation('relu'))
