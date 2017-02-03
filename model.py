@@ -37,18 +37,8 @@ model.add(Activation('relu'))
 model.add(Convolution2D(16, 3, 3, border_mode='valid'))
 model.add(Activation('relu'))
 
-
-# Kernel Size 3 x 3 (64 Filters)
-model.add(Convolution2D(32, 3, 3, border_mode='valid'))
-model.add(Activation('relu'))
-
-# Kernel Size 3 x 3 (64 Filters)
-model.add(Convolution2D(16, 3, 3, border_mode='valid'))
-model.add(Activation('relu'))
-
 model.add(Convolution2D(8, 3, 3, border_mode='valid'))
 model.add(Activation('relu'))
-
 
 # Kernel Size 3 x 3 (64 Filters)
 model.add(Convolution2D(4, 3, 3, border_mode='valid'))
@@ -56,6 +46,11 @@ model.add(Activation('relu'))
 
 
 model.add(Flatten())
+
+model.add(Dense(500))
+model.add(Activation('relu'))
+
+model.add(Dropout(0.5))
 
 model.add(Dense(150))
 model.add(Activation('relu'))
@@ -86,3 +81,4 @@ except OSError:
 with open(model_json, 'w') as output:
     json.dump(model_as_json, output)
 model.save_weights(model_weights)
+
