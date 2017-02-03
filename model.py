@@ -19,46 +19,63 @@ features, labels = shuffle(X_features, Y_labels)
 
 model_json = "model.json"
 model_weights = "model.h5"
-height = 32
-width = 64
+height = 30
+width = 90
 model = Sequential()
 # Kernel Size 3 x 3 (16 Filters)
+
 model.add(Convolution2D(16, 3, 3, input_shape=(height, width, 3), border_mode='valid'))
-model.add(MaxPooling2D((2, 2)))
 model.add(Activation('relu'))
+model.add(MaxPooling2D((2, 2)))
+
 
 # Kernel Size 3 x 3 (32 Filters)
 model.add(Convolution2D(32, 3, 3, border_mode='valid'))
-model.add(MaxPooling2D((2, 2)))
 model.add(Activation('relu'))
 
 # Kernel Size 3 x 3 (48 Filters)
-model.add(Convolution2D(48, 3, 3, border_mode='valid'))
-model.add(MaxPooling2D((2, 2)))
+model.add(Convolution2D(16, 3, 3, border_mode='valid'))
+model.add(Activation('relu'))
 
 
 # Kernel Size 3 x 3 (64 Filters)
-#model.add(Convolution2D(64, 3, 3, border_mode='valid'))
-#model.add(MaxPooling2D((2, 2)))
-#model.add(Activation('relu'))
+model.add(Convolution2D(32, 3, 3, border_mode='valid'))
+model.add(Activation('relu'))
+
+# Kernel Size 3 x 3 (64 Filters)
+model.add(Convolution2D(16, 3, 3, border_mode='valid'))
+model.add(Activation('relu'))
+
+model.add(Convolution2D(8, 3, 3, border_mode='valid'))
+model.add(Activation('relu'))
+
+
+# Kernel Size 3 x 3 (64 Filters)
+model.add(Convolution2D(4, 3, 3, border_mode='valid'))
+model.add(Activation('relu'))
 
 
 model.add(Flatten())
 
-#model.add(Dense(1164))
-#model.add(Activation('relu'))
-
-model.add(Dense(100))
+model.add(Dense(150))
 model.add(Activation('relu'))
 
-model.add(Dense(50))
+model.add(Dense(80))
 model.add(Activation('relu'))
+
+model.add(Dense(20))
+model.add(Activation('relu'))
+
+model.add(Dropout(0.5))
 
 model.add(Dense(1))
 
 model.compile('adam', 'mean_squared_error', ['accuracy'])
 
-history = model.fit(features, labels, nb_epoch=100, validation_split=0.2)
+
+print(model.summary())
+
+history = model.fit(features, labels, nb_epoch=20, validation_split=0.2)
 
 model_as_json = model.to_json()
 try:

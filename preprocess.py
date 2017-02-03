@@ -8,6 +8,8 @@ import cv2
 root_data = "data/"
 log_file = root_data + "driving_log.csv"
 pickle_file = "behave.pickle"
+width = 90
+height = 30
 
 
 def extract_features(line):
@@ -34,7 +36,7 @@ def normalize(x):
 def pipeline(img):
     x = img[45:]
     x = normalize(x)
-    x = imresize(x, (32, 64))
+    x = imresize(x, (height, width))
     return x
 
 def flip_image(x, y):
@@ -45,7 +47,7 @@ def save_file():
     with open(log_file, 'r') as reader:
         lines = reader.readlines()
         total_size = len(lines)-2
-        X = np.zeros(shape=(2*total_size, 32, 64, 3))
+        X = np.zeros(shape=(2*total_size, height, width, 3))
         Y = np.zeros(shape=(2*total_size))
         print("Starting to extract data")
         print("Extracting a total of ", 2*total_size)
@@ -83,4 +85,4 @@ def save_file():
     except Exception as e:
         print("Unable to save: ",e)
 
-#save_file()
+save_file()
