@@ -44,7 +44,7 @@ model.add(MaxPooling2D((2, 2)))
 
 
 model.add(Flatten())
-
+model.add(Dropout(0.8))
 #model.add(Dense(1164))
 #model.add(Activation('relu'))
 model.add(Dense(100))
@@ -59,7 +59,7 @@ model.compile('adam', 'mean_squared_error', ['accuracy'])
 
 print(model.summary())
 
-history = model.fit(features, labels, nb_epoch=10, validation_split=0.2)
+history = model.fit(features, labels, nb_epoch=5, validation_split=0.2)
 
 model_as_json = model.to_json()
 try:
