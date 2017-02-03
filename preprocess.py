@@ -8,8 +8,8 @@ import cv2
 root_data = "data/"
 log_file = root_data + "driving_log.csv"
 pickle_file = "behave.pickle"
-width = 90
-height = 30
+width = 64
+height = 32
 
 
 def extract_features(line):

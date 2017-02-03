@@ -19,8 +19,8 @@ features, labels = shuffle(X_features, Y_labels)
 
 model_json = "model.json"
 model_weights = "model.h5"
-height = 30
-width = 90
+height = 32
+width = 64
 model = Sequential()
 # Kernel Size 3 x 3 (16 Filters)
 
