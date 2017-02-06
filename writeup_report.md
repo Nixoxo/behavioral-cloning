@@ -113,3 +113,5 @@ To improve the driving behavior, I recorded the failing places and retrained the
 I finally randomly shuffled the data set and in the beginning I used a validation set of data until I found a fitting deep learning architecture. (Note: I am not using a validation set anymore)
 
 I iterated through this process until the model was successfully passing a round.
+
+Another thing which I did with the dataset is to flip the image and negated the steering angle to generate more data.
