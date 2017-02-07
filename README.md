@@ -26,8 +26,9 @@ So I decided to record some data at the points where the trained model failed. A
 
 ## Final Solution
 
-The final distribution of the data looks like this:
+The data which I used for my final model is distributed as in the following analysis. I could reduce the zero steering angles a little bit more. However, the model is doing a good job and it is working for the first track.
 ![Analysis of combined data](report/combined_analysis.png)
 
 The final model:
+
 ![](report/model_1.gif)
