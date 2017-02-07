@@ -8,16 +8,26 @@ For my first attempt I just used the provided data of udacity and build a simple
 
 ![Analysis of base data](report/base_analysis.png)
 
-Before starting with the next training of my model I decided to use a smaller amout of the zero steering angles. If you are interested of the code, you can take a quick look at [preprocess.py](preprocess.py) (save_file method line 42). The trained model did not tend to overfit. This is where I started to 
+Before starting with the next training of my model I decided to use a smaller amout of the zero steering angles. If you are interested of the code, you can take a quick look at [preprocess.py](preprocess.py) (save_file method line 42). The trained model did not tend to overfit.
+
+Also I started the flip the images and negate the steering angle to generate more data and get an equal distribution of the steering angles. (line 38 in [preprocess.py](preprocess.py))
 
 ![Analysis of modified base data](report/modified_base_analysis.png)
 
-![Analysis of delta data](report/delta_analysis.png)
-
-![Analysis of combined data](report/combined_analysis.png)
+After the next training the model predicted this:
 
 ![](report/init_model_1.gif)
 
+So I decided to record some data at the points where the trained model failed. Also I decides to keep a margin of zero values.
+![Analysis of delta data](report/delta_analysis.png)
+
+
+
 
 ## Final Solution
+
+The final distribution of the data looks like this:
+![Analysis of combined data](report/combined_analysis.png)
+
+The final model:
 ![](report/model_1.gif)
