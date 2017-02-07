@@ -39,6 +39,9 @@ def telemetry(sid, data):
     throttle = data["throttle"]
     # The current speed of the car
     speed = data["speed"]
+
+    # Managing Throttle
+    #throttle = max(0.1, -0.15 / 0.05 * abs(round(float(steering_angle),1)) + 0.35)
     throttle = 0.2
     # The current image from the center camera of the car
     imgString = data["image"]
