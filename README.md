@@ -19,8 +19,8 @@ After the next training the model predicted this:
 ![](report/init_model_1.gif)
 
 So I decided to record some data at the points where the trained model failed. Also I decides to keep a margin of zero values.
-![Analysis of delta data](report/delta_analysis.png)
 
+![Analysis of delta data](report/delta_analysis.png)
 
 
 
