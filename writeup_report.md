@@ -26,6 +26,7 @@ The goals / steps of this project are the following:
 ####1. Submission includes all required files and can be used to run the simulator in autonomous mode. The data is currently *not* included into this repository.
 
 My project includes the following files:
+* Analysis.ipynb contains a histogram of the labeled data
 * preparation.py this script was created for an easier data wrangling
 * preprocess.py contains the data pipeline as well as the preparation of the test dataset
 * model.py containing the script to create and train the model
